@@ -9,6 +9,9 @@
   import flower1 from "./assets/flower1.svg";
   import { fade } from "svelte/transition";
   import { cubicInOut } from "svelte/easing";
+  import { onMount } from "svelte";
+  import { API_BASE, RING_BASE } from "./lib/consts";
+  import { joinURL } from "ufo";
 
   // https://stackoverflow.com/a/79718503/22946386
   const container = $host();
@@ -18,6 +21,24 @@
 
   let open = $state(true);
   let showDirectory = $state(false);
+
+  type Member = {
+    id: string;
+    name: string;
+    url: string;
+    buttonUrl: string;
+  };
+  let members = $state<Member[]>([]);
+
+  onMount(async () => {
+    const res = await fetch(joinURL(API_BASE, "/members"), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data: Member[] = await res.json();
+    members = data;
+  });
 </script>
 
 {#if open && showDirectory}
@@ -99,15 +120,53 @@
       <hr class="border-neutral-300" />
       <div
         class={[
-          "relative -z-10 min-h-0 flex-1 overflow-y-auto p-3 transition",
+          "relative -z-10 min-h-0 flex-1 overflow-y-auto p-1.5 transition",
           !showDirectory && "-translate-y-4 opacity-0",
         ]}
       >
-        {#each { length: 30 } as _, i}
-          <p class="mb-2 text-sm">
-            This is some example content for the overlay. Line {i + 1}.
+        <div class="group">
+          {#each members as member (member.id)}
+            <a
+              href={member.url}
+              class="ring-link flex items-center gap-2 p-1.5 shadow-none transition group-has-hover:not-hover:opacity-75 hover:bg-teal-100 hover:ring-1"
+            >
+              <img
+                src={member.buttonUrl}
+                alt=""
+                width="88"
+                height="31"
+                class="flex-none"
+              />
+              <div class="min-w-0 flex-1 leading-none">
+                <p class="text-sm font-semibold">{member.name}</p>
+                <p class="mt-0.5 text-xs text-neutral-600">
+                  {new URL(member.url).hostname}
+                </p>
+              </div>
+            </a>
+          {/each}
+        </div>
+        <div class="px-1.5 pb-1.5 text-sm">
+          <hr class="my-3 border-dashed border-neutral-200" />
+          <p class="text-neutral-600">
+            this is a collection of personal websites made by members of Hack
+            Club.
           </p>
-        {/each}
+          <div class="mt-1.5 flex gap-3">
+            <a
+              href={RING_BASE}
+              target="_blank"
+              class="text-link font-semibold transition hover:text-teal-900 hover:underline"
+            >
+              read more
+            </a>
+            <button
+              class="font-semibold text-red-700 transition hover:text-red-900 hover:underline"
+            >
+              exit webring
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

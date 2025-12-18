@@ -3,6 +3,21 @@
   url: https://aconlin.com
   buttonUrl: /buttons/acon.gif
 
+- id: vvqb
+  name: "vvqb"
+  url: "https://vvqb.dev"
+  buttonUrl: "https://vvqb.dev/88x31/vvqb_dev.gif"
+
+- id: prpl
+  name: "prpl"
+  url: "https://prpl.wtf/"
+  buttonUrl: "https://prpl.wtf/img/88x31/prpl_wtf.gif"
+
+- id: gideon
+  name: "gideon"
+  url: "https://gideon.sh"
+  buttonUrl: "https://gideon.sh/88x31.gif"
+
 - id: bomberfish
   name: "bomberfish"
   url: "https://bomberfish.ca"
@@ -17,16 +32,6 @@
   name: valen
   url: "https://valen.zip"
   buttonUrl: "https://valen.zip/button-win98.gif"
-
-- id: prpl
-  name: "prpl"
-  url: "https://prpl.wtf/"
-  buttonUrl: "https://prpl.wtf/img/88x31/prpl_wtf.gif"
-
-- id: vvqb
-  name: "vvqb"
-  url: "https://vvqb.dev"
-  buttonUrl: "https://vvqb.dev/88x31/vvqb_dev.gif"
 
 - id: codingcorner
   name: "kyle"

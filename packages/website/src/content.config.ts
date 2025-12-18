@@ -7,7 +7,7 @@ const members = defineCollection({
   schema: z.object({
     name: z.string(),
     url: z.string().url(),
-    buttonUrl: z.union([z.string().url(), z.string().startsWith("/")]),
+    buttonUrl: z.union([z.string().url(), z.string().startsWith("/buttons/")]),
   }),
 });
 

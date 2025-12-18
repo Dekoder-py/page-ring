@@ -12,7 +12,8 @@
     "@fontsource-variable/archivo": "^5.2.8",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "ufo": "^1.6.1"
   },
   "devDependencies": {
     "prettier": "^3.7.4",
