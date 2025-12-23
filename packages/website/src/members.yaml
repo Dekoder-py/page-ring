@@ -4,7 +4,13 @@
   name: "gideon"
   url: "https://gideon.sh"
   buttonUrl: "https://gideon.sh/88x31.gif"
+
 - id: inkedpetal
   name: "inkedpetal"
   url: "https://inkedpetal.dev"
   buttonUrl: "https://inkedpetal.dev/88x31/inkedpetal.gif"
+
+- id: ivie
+  name: "ivie"
+  url: "https://ivie.codes"
+  buttonUrl: "https://ivie.codes/88x31.png"
